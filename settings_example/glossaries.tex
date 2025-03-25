@@ -72,6 +72,6 @@ automake % so we won't need to call glossaries by hand
 % fix automake glossaries with lualatex: https://tex.stackexchange.com/a/468820
 \usepackage{etoolbox}
 \makeatletter
-\newcommand{\patchfail}{\PackageWarning{mypackage}{Patch failed}}
-\patchcmd\@gls@automake{\write18}{\DelayedShellEscape}{}{\patchfail}
+\patchcmd{\@gls@automake}{\write18}{\DelayedShellEscape}{}{}
 \makeatother
+\newcommand{\fail}{\PackageWarning{mypackage}{Patch failed}}
